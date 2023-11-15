@@ -23,6 +23,10 @@ app.get('/', function (req, res) {
 app.get('/api/hello', function (req, res) {
   res.json({ greeting: 'hello API' });
 });
+app.get('/api/whoami', (req, res) => {
+  console.log(req.rawHeaders),
+  res.send({ ipaddress: req.ip, language: req.rawHeaders[29], software: req.rawHeaders [15]})
+})
 
 // listen for requests :)
 var listener = app.listen(process.env.PORT || 3000, function () {
