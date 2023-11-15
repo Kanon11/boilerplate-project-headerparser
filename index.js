@@ -29,7 +29,7 @@ app.get('/api/whoami', (req, res) => {
             req.socket.remoteAddress ||
             req.connection.socket.remoteAddress;
   ip = ip.split(',')[0];
-  ip = ip.split(':').slice(-1)[0]; //in case the ip returned in a format: "::ffff:146.xxx.xxx.xxx"
+  // ip = ip.split(':').slice(-1)[0]; //in case the ip returned in a format: "::ffff:146.xxx.xxx.xxx"
   res.send({ ipaddress: ip , language: req.headers['accept-language'], software: req.headers['user-agent'] })
 })
 
